@@ -23,7 +23,6 @@ LOCAL_MODULE := libf2fs
 LOCAL_SRC_FILES := $(libf2fs_src_files)
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS)
-LOCAL_CLANG := false
 LOCAL_SHARED_LIBRARIES := libext2_uuid libsparse libz
 include $(BUILD_SHARED_LIBRARY)
 
@@ -32,7 +31,6 @@ LOCAL_MODULE := libf2fs_static
 LOCAL_SRC_FILES := $(libf2fs_src_files)
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS)
-LOCAL_CLANG := false
 include $(BUILD_STATIC_LIBRARY)
 
 #----------------------------------------------------------
@@ -46,7 +44,6 @@ LOCAL_MODULE := mkfs.f2fs
 LOCAL_SRC_FILES := $(mkfs_f2fs_src_files)
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS)
-LOCAL_CLANG := false
 LOCAL_SHARED_LIBRARIES := libf2fs libext2_uuid
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
@@ -56,7 +53,6 @@ LOCAL_MODULE := libf2fs_mkfs_static
 LOCAL_SRC_FILES := $(mkfs_f2fs_src_files)
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS) -Dmain=mkfs_f2fs_main
-LOCAL_CLANG := false
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_STATIC_LIBRARY)
 
@@ -79,7 +75,6 @@ LOCAL_MODULE := fsck.f2fs
 LOCAL_SRC_FILES := $(fsck_f2fs_src_files)
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS)
-LOCAL_CLANG := false
 LOCAL_SHARED_LIBRARIES := libf2fs libselinux
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
@@ -89,7 +84,6 @@ LOCAL_MODULE := libf2fs_fsck_static
 LOCAL_SRC_FILES := $(fsck_f2fs_src_files)
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS) -Dmain=fsck_f2fs_main
-LOCAL_CLANG := false
 LOCAL_STATIC_LIBRARIES := libselinux
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_STATIC_LIBRARY)
@@ -104,8 +98,6 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS) -DANDROID_HOST
-LOCAL_CLANG := false
-LOCAL_EXPORT_CFLAGS := $(common_CFLAGS)
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include $(LOCAL_PATH)/mkfs
 include $(BUILD_HOST_STATIC_LIBRARY)
 
@@ -119,8 +111,6 @@ LOCAL_SRC_FILES := \
 
 LOCAL_C_INCLUDES := $(common_C_INCLUDES)
 LOCAL_CFLAGS := $(common_CFLAGS) -DANDROID_HOST
-LOCAL_CLANG := false
-LOCAL_EXPORT_CFLAGS := $(common_CFLAGS)
 LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/include $(LOCAL_PATH)/mkfs
 LOCAL_STATIC_LIBRARIES := \
      libf2fs_fmt-host \
